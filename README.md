@@ -1,0 +1,2 @@
+# fidorest
+Fidonet RESTful API
