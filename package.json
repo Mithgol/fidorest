@@ -1,0 +1,13 @@
+{
+"name": "fidorest",
+"main": "fidorest.js",
+"version": "0.0.1",
+"description": "Fidonet RESTful API",
+"keywords": ["Fido", "Fidonet", "REST"],
+"author": { "name": "Mithgol the Webmaster" },
+"license": "MIT",
+"repository": {
+   "type": "git",
+   "url": "https://github.com/Mithgol/fidorest.git"
+}
+}
