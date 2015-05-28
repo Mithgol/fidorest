@@ -1,10 +1,12 @@
 [![(a histogram of downloads)](https://nodei.co/npm-dl/fidorest.png?height=3)](https://npmjs.org/package/fidorest)
 
-This module (`fidorest`) provides (in a form of RESTful API) a remote interface to a Fidonet system.
+This module (`fidorest`) provides (inÂ aÂ form of RESTfulÂ API) aÂ remote interface toÂ aÂ FidonetÂ system.
 
-It is designed as a web application for the [Express.js](http://expressjs.com/) web server.
+It is designed as aÂ web application for the [Express.js](http://expressjs.com/) webÂ server.
 
-This module is currently in an early phase of its development and thus does not have the desired level of feature completeness.
+This module is currently inÂ anÂ early phase ofÂ itsÂ development andÂ thus doesÂ notÂ have theÂ desiredÂ level of featureÂ completeness. AnÂ initial idea ofÂ what thisÂ module shouldÂ do (whenÂ itÂ is completed) wasÂ published inÂ Fidonet:
+
+* [`area://Ru.Husky?msgid=2:50/88+5565c79e`](http://ftn.su/m/RU.HUSKY/2:50/88+5565c79e)
 
 ## Installing FidoREST
 
@@ -14,9 +16,9 @@ This module is currently in an early phase of its development and thus does not 
 
 * Latest githubbed version: `npm install https://github.com/Mithgol/fidorest/tarball/master`
 
-The npm package does not contain the tests, they're published on GitHub only.
+The npm package doesÂ not contain theÂ tests, they're published onÂ GitHub only.
 
-You may visit https://github.com/Mithgol/fidorest#readme occasionally to read the latest `README` because the package's version is not planned to grow after changes when they happen in `README` only. (And `npm publish --force` is [forbidden](http://blog.npmjs.org/post/77758351673/no-more-npm-publish-f) nowadays.)
+You may visit https://github.com/Mithgol/fidorest#readme occasionally toÂ read theÂ latest `README` because theÂ package's version isÂ not planned toÂ grow after changes when they happen in `README` only. (AndÂ `npm publish --force` isÂ [forbidden](http://blog.npmjs.org/post/77758351673/no-more-npm-publish-f) nowadays.)
 
 ## License
 
