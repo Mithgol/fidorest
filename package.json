@@ -1,7 +1,7 @@
 {
 "name": "fidorest",
 "main": "fidorest.js",
-"version": "0.0.1",
+"version": "0.0.2",
 "description": "Fidonet RESTful API",
 "keywords": ["Fido", "Fidonet", "REST"],
 "author": { "name": "Mithgol the Webmaster" },
