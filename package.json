@@ -10,7 +10,14 @@
    "type": "git",
    "url": "https://github.com/Mithgol/fidorest.git"
 },
+"dependencies": {
+   "extend": "~2.0.1",
+   "simteconf": "~0.6.10"
+},
 "peerDependencies": {
    "express": "4.x"
+},
+"scripts": {
+   "test": "jshint --verbose fidorest.js restconf.js"
 }
 }

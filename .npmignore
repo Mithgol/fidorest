@@ -34,3 +34,6 @@ npm-debug.log
 test
 .gitignore
 .git
+
+# Project specific
+fidorest.conf

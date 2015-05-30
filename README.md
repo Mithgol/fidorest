@@ -20,6 +20,41 @@ The npm package does not contain the tests, they're published on GitHub only.
 
 You may visit https://github.com/Mithgol/fidorest#readme occasionally to read the latest `README` because the package's version is not planned to grow after changes when they happen in `README` only. (And `npm publish --force` is [forbidden](http://blog.npmjs.org/post/77758351673/no-more-npm-publish-f) nowadays.)
 
+## Using FidoREST
+
+When you `require()` the installed module, you get a function that accepts an object of options and returns an Express.js application that provides REST API to your system.
+
+You may serve that application on a route (path) of your Express-based web server:
+
+```js
+var FidoREST = require('fidorest')(options_for_FidoREST);
+app.use('/fidorest', FidoREST);
+```
+
+You may also use the [`vhost`](https://github.com/expressjs/vhost) module to serve that application on a virtual host of your Express-based web server:
+
+```js
+var vhost = require('vhost');
+var FidoREST = require('fidorest')(options_for_FidoREST);
+app.use(vhost('fidorest.example.org', FidoREST));
+```
+
+You should create a configuration file for the installed FidoREST module before you use it. (See below.)
+
+## Configuration options
+
+The `options_for_FidoREST` object that is given to FidoREST currently has only one property:
+
+* `configFilePath` — the path to the configuration file. That file contains most of the other configuration options in their text from, one line per option. (By default it is the file `fidorest.conf` in the directory of the FidoREST module. You may use `fidorest.conf-example` as an example.)
+
+The configuration file is read only once (when the server starts).
+
+The following configuration options are supported (in arbitrary order):
+
+* `Address` — FTN address of the system.
+
+* `SysOp` — full name of the system's operator.
+
 ## License
 
 MIT license (see the `LICENSE` file).
