@@ -55,6 +55,16 @@ The following configuration options are supported (in arbitrary order):
 
 * `SysOp` — full name of the system's operator.
 
+## Testing FidoREST
+
+[![(build testing status)](https://img.shields.io/travis/Mithgol/fidorest/master.svg?style=plastic)](https://travis-ci.org/Mithgol/fidorest)
+
+It is necessary to install [JSHint](http://jshint.com/) for testing.
+
+* You may install JSHint globally (`npm install jshint -g`) or locally (`npm install jshint` in the directory of the FidoREST module).
+
+After that you may run `npm test` (in the directory of the FidoREST module). Only the JS code errors are caught; the code's behaviour is not tested.
+
 ## License
 
 MIT license (see the `LICENSE` file).
