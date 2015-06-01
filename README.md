@@ -24,22 +24,51 @@ You may visit https://github.com/Mithgol/fidorest#readme occasionally to read t
 
 When you `require()` the installed module, you get a function that accepts an object of options and returns an Express.js application that provides REST API to your system.
 
-You may serve that application on a route (path) of your Express-based web server:
+**Example 1. ** You may serve the FidoREST application on a route (path) of your Express-based web server:
 
 ```js
+var express = require('express');
+var app = express();
+
 var FidoREST = require('fidorest')(options_for_FidoREST);
 app.use('/fidorest', FidoREST);
 ```
 
-You may also use the [`vhost`](https://github.com/expressjs/vhost) module to serve that application on a virtual host of your Express-based web server:
+**Example 2. ** You may also use the [`vhost`](https://github.com/expressjs/vhost) module to serve the FidoREST application on a virtual host of your Express-based web server:
 
 ```js
 var vhost = require('vhost');
+var express = require('express');
+var app = express();
+
 var FidoREST = require('fidorest')(options_for_FidoREST);
 app.use(vhost('fidorest.example.org', FidoREST));
 ```
 
-You should create a configuration file for the installed FidoREST module before you use it. (See below.)
+**Example 3. ** You may also directly use the FidoREST application itself as your Express-based web server (if that server's only purpose is to provide the FidoREST API).
+
+HTTP example:
+
+```js
+require('fidorest')(options_for_FidoREST).listen(80);
+```
+
+HTTPS example:
+
+```js
+var fs = require('fs');
+
+require('https').createServer(
+   {
+      key:   fs.readFileSync('somepath/server.key', {encoding: 'utf8'}),
+      cert:  fs.readFileSync('somepath/server.crt', {encoding: 'utf8'}),
+      honorCipherOrder: true
+   },
+   require('fidorest')(options_for_FidoREST)
+).listen(443);
+```
+
+**Note. ** You should create a configuration file for the installed FidoREST module before you use it. (See below.)
 
 ## Configuration options
 
