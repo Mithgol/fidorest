@@ -8,6 +8,8 @@ This module is currently in an early phase of its development and thus does
 
 * [`area://Ru.Husky?msgid=2:50/88+5565c79e`](http://ftn.su/m/RU.HUSKY/2:50/88+5565c79e)
 
+Only the first of these planned features is implemented.
+
 ## Installing FidoREST
 
 [![(npm package version)](https://nodei.co/npm/fidorest.png?downloads=true&downloadRank=true)](https://npmjs.org/package/fidorest)
