@@ -4,11 +4,7 @@ This module (`fidorest`) provides (in a form of RESTful API) a remote interf
 
 It is designed as a web application for the [Express.js](http://expressjs.com/) web server.
 
-This module is currently in an early phase of its development and thus does not have the desired level of feature completeness. An initial idea of what this module should do (when it is completed) was published in Fidonet:
-
-* [`area://Ru.Husky?msgid=2:50/88+5565c79e`](http://ftn.su/m/RU.HUSKY/2:50/88+5565c79e)
-
-Only the first of these planned features is implemented.
+This module is currently in an early phase of its development and thus does not have the desired level of feature completeness.
 
 ## Installing FidoREST
 
@@ -83,6 +79,58 @@ The following configuration options are supported (in arbitrary order):
 * `Address` — FTN address of the system.
 
 * `SysOp` — full name of the system's operator.
+
+## FidoREST API
+
+An initial idea of what this module should do (when it is completed) was published in Fidonet:
+
+* [`area://Ru.Husky?msgid=2:50/88+5565c79e`](http://ftn.su/m/RU.HUSKY/2:50/88+5565c79e)
+
+The following types of requests are planned:
+
+* Request metadata about the server and the underlying Fidonet system.
+
+* ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) Change metadata about the server and the underlying Fidonet system.
+
+* ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) Request the list of freq-able files (actually just downloadable via FidoREST API, see below) and their metadata.
+
+* ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) Some implementation of a freq (file request), i.e. downloading a file (knowing its name) from the Fidonet system.
+
+* ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) Request the list of file echomail areas and their metadata.
+
+* ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) List the files in the designated echomail area and their metadata.
+
+* ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) Request detailed metadata of the designated file from the designated file echomail area.
+
+* ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) Get the designated file from the designated file echomail area.
+
+* ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) Publish a file in a file echomail area (including some file's metadata).
+
+* ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) Erase the designated file from the designated file echomail area.
+
+* ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) Subscribe to a file echomail area (declare that it's interesting).
+
+* ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) Unsubscribe from a file echomail area (declare that it's no longer interesting).
+
+* ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) Request the list of echomail areas and their metadata.
+
+* ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) List the messages in the designated echomail area and their metadata.
+
+* ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) Request detailed metadata of the designated message from the designated echomail area.
+
+* ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) Get the designated message from the designated echomail area.
+
+* ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) Publish a message in an echomail area (including that message's header and some other metadata).
+
+* ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) Erase the designated message from the designated echomail area.
+
+* ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) Send a netmail message (including that message's header and some other metadata).
+
+* ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) Receive netmail messages that weren't received before.
+
+* ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) Subscribe to an echomail area (declare that it's interesting).
+
+* ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) Unsubscribe from an echomail area (declare that it's no longer interesting).
 
 ## Testing FidoREST
 
