@@ -6,7 +6,7 @@ module.exports = function(configOptions){
       skipNames: ['//', '#']
    });
 
-   setup.address = configFidoREST.last('Address'); // or `null`
+   setup.address = configFidoREST.all('Address'); // or `null`
    setup.SysOp = configFidoREST.last('SysOp'); // or `null`
 
    return setup;
