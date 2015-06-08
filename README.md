@@ -88,7 +88,7 @@ An initial idea of what this module should do (when it is completed) was 
 
 The following types of requests are planned:
 
-* Request metadata about the server and the underlying Fidonet system.
+* [Request metadata about the server and the underlying Fidonet system.](#get-)
 
 * ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) Change metadata about the server and the underlying Fidonet system.
 
