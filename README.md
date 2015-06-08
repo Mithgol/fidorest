@@ -132,6 +132,18 @@ The following types of requests are planned:
 
 * ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) Unsubscribe from an echomail area (declare that it's no longer interesting).
 
+### GET /
+
+HTTP GET request is sent to the root of FidoREST. (In examples 2 and 3 the root directory of the server is requested; in example 1 it is the FidoREST's subdirectory under the server's root.)
+
+The response is a JSON object with the following properties:
+
+* `soft` — *(string)* name of the application and its version. (For example, `"FidoREST 0.0.2"` in one of the most early versions of this implementation. Note: in other implementations the application's name is likely **not** to be `FidoREST`; do not use it to detect the presence of FidoREST interface.)
+
+* `sys` — *(string)* name of the system's operator.
+
+* `address` — array of *(string)* FTN addresses. Each address is given in the form `zone:net/node.point@domain`, where `zone` and `net` and `node` and `point` are natural numbers. The `@domain` part is optional (if it is absent, `@fidonet` is the default). The `.point` part is optional (if it is absent, the system is a node and not a point). Example: `"9:9999/9999"`.
+
 ## Testing FidoREST
 
 [![(build testing status)](https://img.shields.io/travis/Mithgol/fidorest/master.svg?style=plastic)](https://travis-ci.org/Mithgol/fidorest)
