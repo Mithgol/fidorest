@@ -14,7 +14,7 @@ module.exports = function(optionsFidoREST){
    var options = extend({}, defaultsFidoREST, optionsFidoREST);
    var setupFidoREST = configReader(options);
 
-   app.get(/.*/, function(req, res){
+   app.get('/', function(req, res){
       res.type('application/json;charset=utf-8');
       res.send(JSON.stringify({
          address: setupFidoREST.address,
