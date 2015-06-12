@@ -9,5 +9,8 @@ module.exports = function(configOptions){
    setup.address = configFidoREST.all('Address'); // or `null`
    setup.SysOp = configFidoREST.last('SysOp'); // or `null`
 
+   setup.freqDirs = configFidoREST.all('FreqDir'); // or `null`
+   if( setup.freqDirs === null ) setup.freqDirs = [];
+
    return setup;
 };

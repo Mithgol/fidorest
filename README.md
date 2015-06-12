@@ -80,6 +80,12 @@ The following configuration options are supported (in arbitrary order):
 
 * `SysOp` — full name of the system's operator.
 
+* `FreqDir` — a path to the directory containing files that are available for file requests.
+   * If the given path is relative, it is treated as relative to the directory of FidoREST (where its `package.json` resides).
+   * Each file in the designated directory can be requested.
+   * If several `FreqDir` lines are given in the configuration, they're processed in the order of appearance. For example, if the first of such directories contains a file with the name given in a file request, then that file is used instead of its namesakes from latter directories.
+   * Subdirectories of a given directory are ignored (unless they appear on their own `FreqDir` lines).
+
 ## FidoREST API
 
 An initial idea of what this module should do (when it is completed) was published in Fidonet:
