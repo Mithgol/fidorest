@@ -83,8 +83,9 @@ The following configuration options are supported (in arbitrary order):
 * `FreqDir` — a path to the directory containing files that are available for file requests.
    * If the given path is relative, it is treated as relative to the directory of FidoREST (where its `package.json` resides).
    * Each file in the designated directory can be requested.
-   * If several `FreqDir` lines are given in the configuration, they're processed in the order of appearance. For example, if the first of such directories contains a file with the name given in a file request, then that file is used instead of its namesakes from latter directories.
-   * Subdirectories of a given directory are ignored (unless they appear on their own `FreqDir` lines).
+   * If several `FreqDir` lines are given in the configuration, they're processed in the order of appearance. For example, if the first of such directories contains a file with the name given in a file request, then that file is used instead of its namesakes from latter directories. (Files are treated as namesakes if their filenames after `.toLowerCase()` become equal to each other.)
+   * Subdirectories of a given directory are not automatically processed (though you may add their own `FreqDir` lines to make their files available as well).
+   * If the given path is invalid (i.e. the directory does not exist or is not accessible), it is silently ignored.
 
 ## FidoREST API
 
@@ -149,6 +150,18 @@ The response is a JSON object with the following properties:
 * `sys` — *(string)* name of the system's operator.
 
 * `address` — array of *(string)* FTN addresses. Each address is given in the form `zone:net/node.point@domain`, where `zone` and `net` and `node` and `point` are natural numbers. The `@domain` part is optional (if it is absent, `@fidonet` is the default). The `.point` part is optional (if it is absent, the system is a node and not a point). Example: `"9:9999/9999"`.
+
+### GET /freqlist
+
+As in the previous request, the `/freqlist` path is relative to the root directory of FidoREST.
+
+The response is a JSON array; each element of that array corresponds to a file that can be requested using a file request (a freq). Such element has the following properties:
+
+* `name` — *(string)* name of the file.
+
+* `size` — *(number)* size of the file (in bytes).
+
+* `mtime` — *(number)* time when the file's data was last modifies (as number of milliseconds elapsed since 1 January 1970 00:00:00 UTC).
 
 ## Testing FidoREST
 
