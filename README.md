@@ -93,7 +93,7 @@ An initial idea of what this module should do (when it is completed) was 
 
 * [`area://Ru.Husky?msgid=2:50/88+5565c79e`](http://ftn.su/m/RU.HUSKY/2:50/88+5565c79e)
 
-The following types of requests are planned:
+The following types of requests were planned:
 
 * [Request metadata about the server and the underlying Fidonet system.](#get-)
 
@@ -101,7 +101,7 @@ The following types of requests are planned:
 
 * [Request the list of freq-able files (actually just downloadable via FidoREST API, see below) and their metadata.](#get-freqlist)
 
-* ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) Some implementation of a freq (file request), i.e. downloading a file (knowing its name) from the Fidonet system.
+* [An implementation of a freq (file request): downloading a file (knowing its name) from the Fidonet system.](#get-freqfilename)
 
 * ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) Request the list of file echomail areas and their metadata.
 
@@ -172,6 +172,8 @@ The response is a JSON array; each element of that array corresponds to a�
 As in the previous requests, the path is relative to the root directory of FidoREST.
 
 This is a **freq (file request):** a file (designated by its name) is downloaded from the Fidonet system.
+
+(That file's name must be given in the request instead of the `:filename` placeholder. The name is not case-sensitive.)
 
 If the request is successful, the file is served.
 
