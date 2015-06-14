@@ -71,5 +71,49 @@ module.exports = function(optionsFidoREST){
       );
    });
 
+   app.get('/freq/:filename', function(req, res){
+      var target = req.params.filename;
+      var lcTarget = target.toLowerCase();
+      var targetPath;
+
+      async.detectSeries(
+         setupFidoREST.freqDirs,
+         function findFileFromDir(someFreqDir, directoryProcessed){
+            var resolvedPath = path.resolve(__dirname, someFreqDir);
+            fs.readdir(resolvedPath, function(err, filenames){
+               if( err ) return directoryProcessed(false);
+
+               async.detectSeries(
+                  filenames,
+                  function processFilename(someFilename, fileDone){
+                     var lcFilename = someFilename.toLowerCase();
+                     if( lcTarget !== lcFilename ){
+                        return fileDone(false);
+                     }
+                     targetPath = path.resolve(
+                        resolvedPath, someFilename
+                     );
+                     fileDone(true);
+                  },
+                  function filenamesProcessed(wereThey){
+                     return directoryProcessed(wereThey);
+                  }
+               );
+            });
+         },
+         function gotFileFromDirs(wasFound){
+            if( !wasFound ){
+               res.status(404);
+               res.type('application/json;charset=utf-8');
+               res.send(JSON.stringify({
+                  error: 'File not found.'
+               }));
+               return;
+            }
+            res.sendFile(targetPath);
+         }
+      );
+   });
+
    return app;
 };
