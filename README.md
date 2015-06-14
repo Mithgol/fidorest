@@ -99,7 +99,7 @@ The following types of requests are planned:
 
 * ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) Change metadata about the server and the underlying Fidonet system.
 
-* ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) Request the list of freq-able files (actually just downloadable via FidoREST API, see below) and their metadata.
+* [Request the list of freq-able files (actually just downloadable via FidoREST API, see below) and their metadata.](#get-freqlist)
 
 * ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) Some implementation of a freq (file request), i.e. downloading a file (knowing its name) from the Fidonet system.
 
@@ -143,6 +143,8 @@ The following types of requests are planned:
 
 HTTP GET request is sent to the root of FidoREST. (In examples 2 and 3 the root directory of the server is requested; in example 1 it is the FidoREST's subdirectory under the server's root.)
 
+It requests **metadata about the server and the underlying Fidonet system.**
+
 The response is a JSON object with the following properties:
 
 * `soft` — *(string)* name of the application and its version. (For example, `"FidoREST 0.0.2"` in one of the most early versions of this implementation. Note: in other implementations the application's name is likely **not** to be `FidoREST`; do not use it to detect the presence of FidoREST interface.)
@@ -155,6 +157,8 @@ The response is a JSON object with the following properties:
 
 As in the previous request, the `/freqlist` path is relative to the root directory of FidoREST.
 
+It requests **the list of freq-able files and their metadata.**
+
 The response is a JSON array; each element of that array corresponds to a file that can be requested using a file request (a freq). Such element has the following properties:
 
 * `name` — *(string)* name of the file.
@@ -162,6 +166,16 @@ The response is a JSON array; each element of that array corresponds to a�
 * `size` — *(number)* size of the file (in bytes).
 
 * `mtime` — *(number)* time when the file's data was last modifies (as number of milliseconds elapsed since 1 January 1970 00:00:00 UTC).
+
+### GET /freq/:filename
+
+As in the previous requests, the path is relative to the root directory of FidoREST.
+
+This is a **freq (file request):** a file (designated by its name) is downloaded from the Fidonet system.
+
+If the request is successful, the file is served.
+
+Otherwise an error (`404 Not Found`) happens and the corresponding JSON object (`{"error":"File not found."}`) is served.
 
 ## Testing FidoREST
 
