@@ -16,6 +16,8 @@ This module is currently in an early phase of its development and thus does
 
 You may visit https://github.com/Mithgol/fidorest#readme occasionally to read the latest `README` because the package's version is not planned to grow after changes when they happen in `README` only. (And `npm publish --force` is [forbidden](http://blog.npmjs.org/post/77758351673/no-more-npm-publish-f) nowadays.)
 
+**Note: ** [Express.js](http://expressjs.com/) dependency is declared in [`peerDependencies`](https://docs.npmjs.com/files/package.json#peerdependencies) section and thus it won't be automatically installed by npm version 3 (or newer) when you install FidoREST. You are expected to install (separately) both Express and FidoREST as the dependencies of your own web server.
+
 ## Using FidoREST
 
 When you `require()` the installed module, you get a function that accepts an object of options and returns an Express.js application that provides REST API to your system.
