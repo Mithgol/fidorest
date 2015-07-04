@@ -72,7 +72,7 @@ require('https').createServer(
 
 The `options_for_FidoREST` object that is given to FidoREST currently has only one property:
 
-* `configFilePath` — the path to the configuration file. That file contains most of the other configuration options in their text from, one line per option. (By default it is the file `fidorest.conf` in the directory of the FidoREST module. You may use `fidorest.conf-example` as an example.)
+* `configFilePath` — the path to the configuration file. That file contains most of the other configuration options in their text form, one line per option. (By default it is the file `fidorest.conf` in the directory of the FidoREST module. You may use `fidorest.conf-example` as an example.)
 
 The configuration file is read only once (when the server starts).
 
