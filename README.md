@@ -141,6 +141,8 @@ The following types of requests were planned:
 
 * ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) Unsubscribe from an echomail area (declare that it's no longer interesting).
 
+Additionally, an interface for automatic configuration of points (similar to [FRL-1033.003](http://ftsc.org/docs/frl-1033.003), but more simple and RESTful) is planned.
+
 ### GET /
 
 HTTP GET request is sent to the root of FidoREST. (In examples 2 and 3 the root directory of the server is requested; in example 1 it is the FidoREST's subdirectory under the server's root.)
