@@ -157,11 +157,15 @@ The response is a JSON object with the following properties:
 
 * `address` — array of *(string)* FTN addresses. Each address is given in the form `zone:net/node.point@domain`, where `zone` and `net` and `node` and `point` are natural numbers. The `@domain` part is optional (if it is absent, `@fidonet` is the default). The `.point` part is optional (if it is absent, the system is a node and not a point). Example: `"9:9999/9999"`.
 
+* `abilities` — array of *(string)* case-sensitive keywords identifying available RESTful interfaces. (For example, if only file requests are supported, the value of `abilities` should be `['freqlist', 'freq']` array.)
+
 ### GET /freqlist
 
 As in the previous request, the `/freqlist` path is relative to the root directory of FidoREST.
 
-It requests **the list of freq-able files and their metadata.**
+It requests **the list of requestable files and their metadata.**
+
+The request's keyword (for the `abilites` array) is `'freqlist'`.
 
 The response is a JSON array; each element of that array corresponds to a file that can be requested using a file request (a freq). Such element has the following properties:
 
@@ -169,7 +173,7 @@ The response is a JSON array; each element of that array corresponds to a�
 
 * `size` — *(number)* size of the file (in bytes).
 
-* `mtime` — *(number)* time when the file's data was last modifies (as number of milliseconds elapsed since 1 January 1970 00:00:00 UTC).
+* `mtime` — *(number)* time when the file's data was last modified (as number of milliseconds elapsed since 1 January 1970 00:00:00 UTC).
 
 ### GET /freq/:filename
 
@@ -178,6 +182,8 @@ As in the previous requests, the path is relative to the root directory of F
 This is a **freq (file request):** a file (designated by its name) is downloaded from the Fidonet system.
 
 (That file's name must be given in the request instead of the `:filename` placeholder. The name is not case-sensitive.)
+
+The request's keyword (for the `abilites` array) is `'freq'`.
 
 If the request is successful, the file is served.
 
