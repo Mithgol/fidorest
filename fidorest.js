@@ -21,7 +21,7 @@ module.exports = function(optionsFidoREST){
       res.send(JSON.stringify({
          address: setupFidoREST.address,
          sys: setupFidoREST.SysOp,
-         soft: 'FidoREST ' + manifest.version
+         soft: 'FidoREST ' + manifest.version,
          abilities: ['freqlist', 'freq']
       }));
    });
