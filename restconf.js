@@ -1,3 +1,4 @@
+var nodelist = require('nodelist');
 var simteconf = require('simteconf');
 
 module.exports = function(configOptions){
@@ -11,6 +12,14 @@ module.exports = function(configOptions){
 
    setup.freqDirs = configFidoREST.all('FreqDir'); // or `null`
    if( setup.freqDirs === null ) setup.freqDirs = [];
+
+   // Read nodelist from ZIP:
+   try {
+      var ZIPNodelist = configFidoREST.last('ZIPNodelist');
+      setup.nodelist = nodelist(ZIPNodelist, { zip: true });
+   } catch(e) {
+      setup.nodelist = null;
+   }
 
    return setup;
 };

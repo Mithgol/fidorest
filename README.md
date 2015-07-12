@@ -82,6 +82,8 @@ The following configuration options are supported (in arbitrary order):
 
 * `SysOp` — full name of the system's operator.
 
+* `ZIPNodelist` — path to a ZIP-packed nodelist.
+
 * `FreqDir` — a path to the directory containing files that are available for file requests.
    * If the given path is relative, it is treated as relative to the directory of FidoREST (where its `package.json` resides).
    * Each file in the designated directory can be requested.
