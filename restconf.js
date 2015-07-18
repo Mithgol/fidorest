@@ -1,3 +1,4 @@
+var fidoconfig = require('fidoconfig');
 var nodelist = require('nodelist');
 var simteconf = require('simteconf');
 
@@ -12,6 +13,11 @@ module.exports = function(configOptions){
 
    setup.freqDirs = configFidoREST.all('FreqDir'); // or `null`
    if( setup.freqDirs === null ) setup.freqDirs = [];
+
+   // Read HPT areas:
+   setup.areas = fidoconfig.areas(configFidoREST.last('AreasHPT'), {
+      encoding: configFidoREST.last('EncodingHPT') || 'utf8'
+   });
 
    // Read nodelist from ZIP:
    try {
