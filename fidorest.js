@@ -116,5 +116,15 @@ module.exports = function(optionsFidoREST){
       );
    });
 
+   app.get('/echolist', function(req, res){
+      var areaNames = setupFidoREST.areas.getAreaNames().map(function(aName){
+         return {
+            echotag: aName
+         };
+      });
+      res.type('application/json;charset=utf-8');
+      res.send(JSON.stringify( areaNames ));
+   });
+
    return app;
 };
