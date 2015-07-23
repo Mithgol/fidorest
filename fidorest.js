@@ -119,7 +119,9 @@ module.exports = function(optionsFidoREST){
    app.get('/echolist', function(req, res){
       var areaNames = setupFidoREST.areas.getAreaNames().map(function(aName){
          return {
-            echotag: aName
+            echotag: aName,
+            passthrough: setupFidoREST.areas[aName].passthrough,
+            description: setupFidoREST.areas[aName].description
          };
       });
       res.type('application/json;charset=utf-8');
