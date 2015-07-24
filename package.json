@@ -11,7 +11,7 @@
    "url": "https://github.com/Mithgol/fidorest.git"
 },
 "dependencies": {
-   "async": "~1.3.0",
+   "async": "~1.4.0",
    "extend": "~3.0.0",
    "fidoconfig": "~0.2.3",
    "nodelist": "~1.1.6",
