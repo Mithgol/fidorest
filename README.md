@@ -204,6 +204,22 @@ If the request is successful, the file is served.
 
 Otherwise an error (`404 Not Found`) happens and the corresponding JSON object (`{"error":"File not found."}`) is served.
 
+### GET /echolist
+
+As in the previous requests, the `/echolist` path is relative to the root directory of FidoREST.
+
+It requests **the list of echomail areas and their metadata.**
+
+The request's keyword (for the `abilites` array) is `'echolist'`.
+
+The response is a JSON array; each element of that array corresponds to an echomail area available on the Fidonet system. Such element has the following properties:
+
+* `echotag` — *(string)* name of the echomail area; the name that appears in area lines after `AREA:` (see the section “Area lines” in [FTS-0004.001](http://ftsc.org/docs/fts-0004.001)).
+
+* `passthrough` — *(boolean)* `true` if the Fidonet system works with this area in passthrough mode (i.e. messages of the area are only delivered to the subscribed Fidonet systems, but afterwards they are not stored on this system and thus an archive of messages is not available); `false` if messages are stored on the system.
+
+* `description` — *(string or null)* the echomail area's description (or `null` if the description was not given in the Fidonet system's configuration).
+
 ## Testing FidoREST
 
 [![(build testing status)](https://img.shields.io/travis/Mithgol/fidorest/master.svg?style=plastic)](https://travis-ci.org/Mithgol/fidorest)

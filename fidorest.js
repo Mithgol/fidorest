@@ -22,7 +22,7 @@ module.exports = function(optionsFidoREST){
          address: setupFidoREST.address,
          sys: setupFidoREST.SysOp,
          soft: 'FidoREST ' + manifest.version,
-         abilities: ['freqlist', 'freq']
+         abilities: ['freqlist', 'freq', 'echolist']
       }));
    });
 
