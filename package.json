@@ -15,6 +15,7 @@
    "extend": "~3.0.0",
    "fidoconfig": "~0.2.3",
    "nodelist": "~1.1.6",
+   "openpgp": "~1.2.0",
    "simteconf": "~0.6.10"
 },
 "peerDependencies": {
