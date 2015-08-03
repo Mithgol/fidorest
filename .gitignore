@@ -32,3 +32,4 @@ npm-debug.log
 
 # Project specific
 fidorest.conf
+*.asc

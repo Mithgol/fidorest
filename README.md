@@ -84,6 +84,10 @@ The following configuration options are supported (in arbitrary order):
 
 * `SysOp` — full name of the system's operator.
 
+* `PublicKey` — path to the file containing ASCII-armored public key of the system as described [in RFC 4880](http://tools.ietf.org/html/rfc4880).
+
+* `PrivateKey` — path to the file containing ASCII-armored private key of the system as described [in RFC 4880](http://tools.ietf.org/html/rfc4880). The key's passphrase is expected to be blank because its use in FidoREST is automated.
+
 * `AreasHPT` — path to the area configuration file of HPT. This setting is necessary for PhiDo to know where the echomail resides.
    * The configuration lines for echomail are expected to start with `EchoArea` (literally), then a whitespace-separated echotag (such as `Ru.FTN.Develop` for example), then a whitespace-separated full path (without the extensions) to the echomail files of the area, in that order. (A sequence of several whitespaces is also a supported separator.) The rest of the configuration line is also whitespace-separated from the path.
    * If the `-d "some description"` is found on the same line, it is used as the echomail area's description.
@@ -99,6 +103,7 @@ The following configuration options are supported (in arbitrary order):
    * If several `FreqDir` lines are given in the configuration, they're processed in the order of appearance. For example, if the first of such directories contains a file with the name given in a file request, then that file is used instead of its namesakes from latter directories. (Files are treated as namesakes if their filenames after `.toLowerCase()` become equal to each other.)
    * Subdirectories of a given directory are not automatically processed (though you may add their own `FreqDir` lines to make their files available as well).
    * If the given path is invalid (i.e. the directory does not exist or is not accessible), it is silently ignored.
+   * Do not make your private key files available for file requests.
 
 ### Examples of external configuration files
 

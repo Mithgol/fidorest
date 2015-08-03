@@ -37,3 +37,4 @@ test
 
 # Project specific
 fidorest.conf
+*.asc
