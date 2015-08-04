@@ -27,5 +27,17 @@ module.exports = function(configOptions){
       setup.nodelist = null;
    }
 
+   setup.pathPublicKey = configFidoREST.last('PublicKey'); // or `null`
+   if( setup.pathPublicKey === null ){
+      console.log('Cannot start FidoREST: PublicKey config is missing.');
+      process.exit(1);
+   }
+
+   setup.pathPrivateKey = configFidoREST.last('PrivateKey'); // or `null`
+   if( setup.pathPrivateKey === null ){
+      console.log('Cannot start FidoREST: PrivateKey config is missing.');
+      process.exit(1);
+   }
+
    return setup;
 };
