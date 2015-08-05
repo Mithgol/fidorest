@@ -85,8 +85,11 @@ The following configuration options are supported (in arbitrary order):
 * `SysOp` — full name of the system's operator.
 
 * `PublicKey` — path to the file containing ASCII-armored public key of the system as described [in RFC 4880](http://tools.ietf.org/html/rfc4880).
+   * If the path is relative, it is treated as relative to the directory of the FidoREST module.
 
-* `PrivateKey` — path to the file containing ASCII-armored private key of the system as described [in RFC 4880](http://tools.ietf.org/html/rfc4880). The key's passphrase is expected to be blank because its use in FidoREST is automated.
+* `PrivateKey` — path to the file containing ASCII-armored private key of the system as described [in RFC 4880](http://tools.ietf.org/html/rfc4880).
+   * If the path is relative, it is treated as relative to the directory of the FidoREST module.
+   * The key's passphrase is expected to be blank because its use in FidoREST is automated.
 
 * `AreasHPT` — path to the area configuration file of HPT. This setting is necessary for PhiDo to know where the echomail resides.
    * The configuration lines for echomail are expected to start with `EchoArea` (literally), then a whitespace-separated echotag (such as `Ru.FTN.Develop` for example), then a whitespace-separated full path (without the extensions) to the echomail files of the area, in that order. (A sequence of several whitespaces is also a supported separator.) The rest of the configuration line is also whitespace-separated from the path.
