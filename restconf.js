@@ -1,5 +1,8 @@
+var fs = require('fs');
+var path = require('path');
 var fidoconfig = require('fidoconfig');
 var nodelist = require('nodelist');
+var openpgp = require('openpgp');
 var simteconf = require('simteconf');
 
 module.exports = function(configOptions){
@@ -32,12 +35,32 @@ module.exports = function(configOptions){
       console.log('Cannot start FidoREST: PublicKey config is missing.');
       process.exit(1);
    }
+   setup.pathPublicKey = path.resolve(__dirname, setup.pathPublicKey);
+   setup.publicKey = (function(pkPath){
+      try {
+         var pkContent = fs.readFileSync(pkPath, {encoding: 'utf8'});
+         return openpgp.key.readArmored(pkContent);
+      } catch( e ){
+         console.log('Cannot start FidoREST: PublicKey is unreadable.');
+         throw e;
+      }
+   })(setup.pathPublicKey);
 
    setup.pathPrivateKey = configFidoREST.last('PrivateKey'); // or `null`
    if( setup.pathPrivateKey === null ){
       console.log('Cannot start FidoREST: PrivateKey config is missing.');
       process.exit(1);
    }
+   setup.pathPrivateKey = path.resolve(__dirname, setup.pathPrivateKey);
+   setup.privateKey = (function(pkPath){
+      try {
+         var pkContent = fs.readFileSync(pkPath, {encoding: 'utf8'});
+         return openpgp.key.readArmored(pkContent);
+      } catch( e ){
+         console.log('Cannot start FidoREST: PrivateKey is unreadable.');
+         throw e;
+      }
+   })(setup.pathPrivateKey);
 
    return setup;
 };
