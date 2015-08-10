@@ -36,13 +36,16 @@ module.exports = function(configOptions){
       process.exit(1);
    }
    setup.pathPublicKey = path.resolve(__dirname, setup.pathPublicKey);
+   var publicKeyUnreadable = false;
    setup.publicKey = (function(pkPath){
       try {
          var pkContent = fs.readFileSync(pkPath, {encoding: 'utf8'});
          return openpgp.key.readArmored(pkContent);
       } catch( e ){
-         console.log('Cannot start FidoREST: PublicKey is unreadable.');
-         throw e;
+         publicKeyUnreadable = {
+            msg: 'Cannot start FidoREST: PublicKey is unreadable.',
+            error: e
+         };
       }
    })(setup.pathPublicKey);
 
@@ -51,16 +54,50 @@ module.exports = function(configOptions){
       console.log('Cannot start FidoREST: PrivateKey config is missing.');
       process.exit(1);
    }
-   setup.pathPrivateKey = path.resolve(__dirname, setup.pathPrivateKey);
+   setup.pathPrivateKey = path.resolve(__dirname, setup.pathPrivateKey);   
+   var privateKeyUnreadable = false;
    setup.privateKey = (function(pkPath){
       try {
          var pkContent = fs.readFileSync(pkPath, {encoding: 'utf8'});
          return openpgp.key.readArmored(pkContent);
       } catch( e ){
-         console.log('Cannot start FidoREST: PrivateKey is unreadable.');
-         throw e;
+         privateKeyUnreadable = {
+            msg: 'Cannot start FidoREST: PrivateKey is unreadable.',
+            error: e
+         };
       }
    })(setup.pathPrivateKey);
+
+   if( publicKeyUnreadable || !privateKeyUnreadable ){
+      console.log(publicKeyUnreadable.msg);
+      throw publicKeyUnreadable.error;
+   } else if( !publicKeyUnreadable || privateKeyUnreadable ){
+      console.log(privateKeyUnreadable.msg);
+      throw privateKeyUnreadable.error;
+   } else if( publicKeyUnreadable || privateKeyUnreadable ){
+      if( configFidoREST.last('CreateMissingKeys') === 'create' ){
+         var optionsKeyPair = {
+            numBits: 2048,
+            userId: setup.address,
+            passphrase: ''
+         };
+         openpgp.generateKeyPair(optionsKeyPair).then(function(keypair){
+            setup.publicKey = keypair.publicKeyArmored;
+            fs.writeFileSync(
+               setup.pathPublicKey, setup.publicKey, {encoding: 'utf8'}
+            );
+            setup.privateKey = keypair.privateKeyArmored;
+            fs.writeFileSync(
+               setup.pathPrivateKey, setup.privateKey, {encoding: 'utf8'}
+            );
+         }).catch(function(err){
+            throw err;
+         });
+      } else {
+         console.log(publicKeyUnreadable.msg);
+         throw publicKeyUnreadable.error;
+      }
+   }
 
    return setup;
 };

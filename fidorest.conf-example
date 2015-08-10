@@ -3,6 +3,7 @@ SysOp John Smith
 
 PublicKey   publicKey.asc
 PrivateKey  privateKey.asc
+CreateMissingKeys create
 
 EncodingHPT cp866
 AreasHPT \Fido\Soft\HPToss\areas.cfg
