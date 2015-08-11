@@ -68,13 +68,13 @@ module.exports = function(configOptions){
       }
    })(setup.pathPrivateKey);
 
-   if( publicKeyUnreadable || !privateKeyUnreadable ){
+   if( publicKeyUnreadable && !privateKeyUnreadable ){
       console.log(publicKeyUnreadable.msg);
       throw publicKeyUnreadable.error;
-   } else if( !publicKeyUnreadable || privateKeyUnreadable ){
+   } else if( !publicKeyUnreadable && privateKeyUnreadable ){
       console.log(privateKeyUnreadable.msg);
       throw privateKeyUnreadable.error;
-   } else if( publicKeyUnreadable || privateKeyUnreadable ){
+   } else if( publicKeyUnreadable && privateKeyUnreadable ){
       if( configFidoREST.last('CreateMissingKeys') === 'create' ){
          var optionsKeyPair = {
             numBits: 2048,
