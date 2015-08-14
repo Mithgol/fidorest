@@ -90,6 +90,8 @@ module.exports = function(configOptions){
             fs.writeFileSync(
                setup.pathPrivateKey, setup.privateKey, {encoding: 'utf8'}
             );
+            console.log('A keypair was successfully generated.');
+            process.exit();
          }).catch(function(err){
             throw err;
          });
