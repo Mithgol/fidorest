@@ -80,7 +80,7 @@ The configuration file is read only once (when the server starts).
 
 The following configuration options are supported (in arbitrary order):
 
-* `Address` — FTN address of the system.
+* `Address` — FTN address of the system. *(required)*
 
 * `SysOp` — full name of the system's operator.
 
@@ -91,7 +91,9 @@ The following configuration options are supported (in arbitrary order):
    * If the path is relative, it is treated as relative to the directory of the FidoREST module.
    * The key's passphrase is expected to be blank because its use in FidoREST is automated.
 
-* `CreateMissingKeys create` — if the option `CreateMissingKeys` is present and equal to `create`, then the files containing ASCII-armored public and private keys of the system are created if both of them don't exist. (A useful option when you create a new FidoREST system. You may want to comment this option later to avoid the keys being accidentally re-created if anything goes wrong with your file system.)
+* `CreateMissingKeys create` — if the option `CreateMissingKeys` is present and equal to `create`, then the files containing ASCII-armored public and private keys of the system are created if both of them don't exist.
+   * The first `Address` value is used as the User ID for these keys.
+   * `CreateMissingKeys` is a useful option when you create a new FidoREST system. However, you may want to comment this option later to avoid the keys being accidentally re-created if anything goes wrong with your file system. Also, as a precaution, the server is immediately shut down after the keys are generated. (You may comment `CreateMissingKeys` before starting it again.)
 
 * `AreasHPT` — path to the area configuration file of HPT. This setting is necessary for PhiDo to know where the echomail resides.
    * The configuration lines for echomail are expected to start with `EchoArea` (literally), then a whitespace-separated echotag (such as `Ru.FTN.Develop` for example), then a whitespace-separated full path (without the extensions) to the echomail files of the area, in that order. (A sequence of several whitespaces is also a supported separator.) The rest of the configuration line is also whitespace-separated from the path.
@@ -183,6 +185,8 @@ The response is a JSON object with the following properties:
 * `address` — array of *(string)* FTN addresses. Each address is given in the form `zone:net/node.point@domain`, where `zone` and `net` and `node` and `point` are natural numbers. The `@domain` part is optional (if it is absent, `@fidonet` is the default). The `.point` part is optional (if it is absent, the system is a node and not a point). Example: `"9:9999/9999"`.
 
 * `abilities` — array of *(string)* case-sensitive keywords identifying available RESTful interfaces. (For example, if only file requests are supported, the value of `abilities` should be `['freqlist', 'freq']` array.)
+
+* `publicKey` — *(string)* ASCII-armored public key of the system as described [in RFC 4880](http://tools.ietf.org/html/rfc4880).
 
 ### GET /freqlist
 

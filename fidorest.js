@@ -23,7 +23,7 @@ module.exports = function(optionsFidoREST){
          sys: setupFidoREST.SysOp,
          soft: 'FidoREST ' + manifest.version,
          abilities: ['freqlist', 'freq', 'echolist'],
-         publicKey: setupFidoREST.publicKey
+         publicKey: setupFidoREST.publicKeyArmored
       }));
    });
 

@@ -12,6 +12,10 @@ module.exports = function(configOptions){
    });
 
    setup.address = configFidoREST.all('Address'); // or `null`
+   if( setup.address === null ){
+      console.log('Cannot start FidoREST: PublicKey config is missing.');
+   }
+
    setup.SysOp = configFidoREST.last('SysOp'); // or `null`
 
    setup.freqDirs = configFidoREST.all('FreqDir'); // or `null`
@@ -40,6 +44,7 @@ module.exports = function(configOptions){
    setup.publicKey = (function(pkPath){
       try {
          var pkContent = fs.readFileSync(pkPath, {encoding: 'utf8'});
+         setup.publicKeyArmored = pkContent;
          return openpgp.key.readArmored(pkContent);
       } catch( e ){
          publicKeyUnreadable = {
@@ -78,18 +83,27 @@ module.exports = function(configOptions){
       if( configFidoREST.last('CreateMissingKeys') === 'create' ){
          var optionsKeyPair = {
             numBits: 2048,
-            userId: setup.address,
+            userId: setup.address[0], // TODO: forEach the setup.address array
             passphrase: ''
          };
          openpgp.generateKeyPair(optionsKeyPair).then(function(keypair){
-            setup.publicKey = keypair.publicKeyArmored;
+            setup.publicKeyArmored = keypair.publicKeyArmored;
+            setup.publicKey = openpgp.key.readArmored(setup.publicKeyArmored);
             fs.writeFileSync(
-               setup.pathPublicKey, setup.publicKey, {encoding: 'utf8'}
+               setup.pathPublicKey,
+               keypair.publicKeyArmored,
+               {encoding: 'utf8'}
             );
-            setup.privateKey = keypair.privateKeyArmored;
+
+            setup.privateKey = openpgp.key.readArmored(
+               keypair.privateKeyArmored
+            );
             fs.writeFileSync(
-               setup.pathPrivateKey, setup.privateKey, {encoding: 'utf8'}
+               setup.pathPrivateKey,
+               keypair.privateKeyArmored,
+               {encoding: 'utf8'}
             );
+
             console.log('A keypair was successfully generated.');
             process.exit();
          }).catch(function(err){
