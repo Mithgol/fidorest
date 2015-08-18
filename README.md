@@ -150,6 +150,8 @@ The following types of requests were planned:
 
 * [Request the list of echomail areas and their metadata.](#get-echolist)
 
+* ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) Request detailed metadara of the designated echomail area.
+
 * ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) List the messages in the designated echomail area and their metadata.
 
 * ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) Request detailed metadata of the designated message from the designated echomail area.
