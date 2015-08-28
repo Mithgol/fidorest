@@ -34,6 +34,10 @@ module.exports = function(configOptions){
       setup.nodelist = null;
    }
 
+   setup.dbFidoREST = configFidoREST.last('databaseFidoREST'); // or `null`
+   if( setup.dbFidoREST === null ) setup.dbFidoREST = 'dbFidoREST.sqlite';
+   setup.dbFidoREST = path.resolve(__dirname, setup.dbFidoREST);
+
    setup.pathPublicKey = configFidoREST.last('PublicKey'); // or `null`
    if( setup.pathPublicKey === null ){
       console.log('Cannot start FidoREST: PublicKey config is missing.');
