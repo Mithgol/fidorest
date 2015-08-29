@@ -172,7 +172,7 @@ The following types of requests were planned:
 
 * ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) Unsubscribe from an echomail area (declare that it's no longer interesting).
 
-Additionally, an interface for automatic configuration of points (similar to [FRL-1033.003](http://ftsc.org/docs/frl-1033.003), but more simple and RESTful) is planned.
+Additionally, an interface for automatic configuration of points (similar to [FRL-1033.003](http://ftsc.org/docs/frl-1033.003), but more simple and RESTful) is planned. Theoretically it can be also used to establish links between nodes.
 
 Theoretically the rules of echomail areas can also be made available via some FidoREST interface.
 
