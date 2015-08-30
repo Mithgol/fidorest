@@ -95,7 +95,9 @@ The following configuration options are supported (in arbitrary order):
    * The first `Address` value is used as the User ID for these keys.
    * `CreateMissingKeys` is a useful option when you create a new FidoREST system. However, you may want to comment this option later to avoid the keys being accidentally re-created if anything goes wrong with your file system. Also, as a precaution, the server is immediately shut down after the keys are generated. (You may comment `CreateMissingKeys` before starting it again.)
 
-* `databaseFidoREST` — path to the SQLite database file that is used by FidoREST as its data storage. (By default, `dbFidoREST.sqlite`.) If the path is relative, it is treated as relative to the directory of the FidoREST module.
+* `databaseFidoREST` — path to the SQLite database file that is used by FidoREST as its data storage. (By default, `dbFidoREST.sqlite`.)
+   * If the path is relative, it is treated as relative to the directory of the FidoREST module.
+   * If the database file does not exist, it is created.
 
 * `AreasHPT` — path to the area configuration file of HPT. This setting is necessary for PhiDo to know where the echomail resides.
    * The configuration lines for echomail are expected to start with `EchoArea` (literally), then a whitespace-separated echotag (such as `Ru.FTN.Develop` for example), then a whitespace-separated full path (without the extensions) to the echomail files of the area, in that order. (A sequence of several whitespaces is also a supported separator.) The rest of the configuration line is also whitespace-separated from the path.
