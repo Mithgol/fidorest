@@ -97,7 +97,7 @@ The following configuration options are supported (in arbitrary order):
 
 * `databaseFidoREST` — path to the SQLite database file that is used by FidoREST as its data storage. (By default, `dbFidoREST.sqlite`.)
    * If the path is relative, it is treated as relative to the directory of the FidoREST module.
-   * If the database file does not exist, it is created.
+   * If the database file does not exist, it is created. Also, as a precaution, the server is immediately shut down after the database is created. This may help to detect the situation where the database is accidentally re-created if anything goes wrong with your file system and thus the usual database is not accessible.
 
 * `AreasHPT` — path to the area configuration file of HPT. This setting is necessary for PhiDo to know where the echomail resides.
    * The configuration lines for echomail are expected to start with `EchoArea` (literally), then a whitespace-separated echotag (such as `Ru.FTN.Develop` for example), then a whitespace-separated full path (without the extensions) to the echomail files of the area, in that order. (A sequence of several whitespaces is also a supported separator.) The rest of the configuration line is also whitespace-separated from the path.
