@@ -15,6 +15,7 @@
    "extend": "~3.0.0",
    "fidoconfig": "~0.2.3",
    "fidonet-jam": "~3.8.8",
+   "ftp-fileecho-list": "~2.0.6",
    "nodelist": "~1.1.6",
    "openpgp": "~1.2.0",
    "simteconf": "~0.6.10",
