@@ -13,7 +13,7 @@ module.exports = function(configOptions){
 
    setup.address = configFidoREST.all('Address'); // or `null`
    if( setup.address === null ){
-      console.log('Cannot start FidoREST: PublicKey config is missing.');
+      console.log('Cannot start FidoREST: address config is missing.');
    }
 
    setup.SysOp = configFidoREST.last('SysOp'); // or `null`
