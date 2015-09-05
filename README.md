@@ -108,6 +108,8 @@ The following configuration options are supported (in arbitrary order):
 
 * `ZIPNodelist` — path to a ZIP-packed nodelist.
 
+* `FTPFileechoList` — path to a list of FTP-mirrored fileechoes. The list itself must adhere to the format understood by the [`ftp-fileecho-list`](https://github.com/Mithgol/node-ftp-fileecho-list) module. Several `FTPFileechoList` configuration lines may appear in the configuration file in the reverse order of their importance (i.e. given from the most important to the least important): if a particular fileecho is present in several lists, that fileecho's URL is based on the first (and not the last) of such lists.
+
 * `FreqDir` — a path to the directory containing files that are available for file requests.
    * If the given path is relative, it is treated as relative to the directory of FidoREST (where its `package.json` resides).
    * Each file in the designated directory can be requested.

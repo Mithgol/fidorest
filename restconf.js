@@ -34,6 +34,8 @@ module.exports = function(configOptions){
       setup.nodelist = null;
    }
 
+   setup.feFTPMirrored = configFidoREST.all('FTPFileechoList'); // or `null`
+
    setup.dbFidoREST = configFidoREST.last('databaseFidoREST'); // or `null`
    if( setup.dbFidoREST === null ) setup.dbFidoREST = 'dbFidoREST.sqlite';
    setup.dbFidoREST = path.resolve(__dirname, setup.dbFidoREST);
