@@ -1,6 +1,7 @@
 var fs = require('fs');
 var path = require('path');
 var fidoconfig = require('fidoconfig');
+var FTPFileechoListReader = require('ftp-fileecho-list');
 var nodelist = require('nodelist');
 var openpgp = require('openpgp');
 var simteconf = require('simteconf');
@@ -35,6 +36,13 @@ module.exports = function(configOptions){
    }
 
    setup.feFTPMirrored = configFidoREST.all('FTPFileechoList'); // or `null`
+   if( setup.feFTPMirrored !== null ){
+      setup.feFTPMirrored = FTPFileechoListReader.sync(
+         setup.feFTPMirrored.map(function(nextListPath){
+            return path.resolve(__dirname, nextListPath);
+         })
+      );
+   }
 
    setup.dbFidoREST = configFidoREST.last('databaseFidoREST'); // or `null`
    if( setup.dbFidoREST === null ) setup.dbFidoREST = 'dbFidoREST.sqlite';
