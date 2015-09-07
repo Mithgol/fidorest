@@ -144,7 +144,7 @@ The following types of requests were planned:
 
 * ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) Request detailed metadata of the designated file from the designated file echomail area.
 
-* ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) Get the designated file from the designated file echomail area.
+* ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) Get the designated file from the designated file echomail area. (If that area is not present on the system, a redirect to an FTP mirror of the area might happen.)
 
 * ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) Publish a file in a file echomail area (including some file's metadata).
 
