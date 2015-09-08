@@ -129,5 +129,29 @@ module.exports = function(optionsFidoREST){
       res.send(JSON.stringify( areaNames ));
    });
 
+   app.get('/fileecho/:fechoname/:filename', function(req, res){
+      var fechoname = req.params.fechoname;
+      var filename = req.params.filename;
+      var mirrored = setupFidoREST.feFTPMirrored;
+      if( mirrored === null ){
+         res.status(404);
+         res.type('application/json;charset=utf-8');
+         res.send(JSON.stringify({
+            error: 'File echomail area was not found.'
+         }));
+         return;
+      }
+      var addr = mirrored[ fechoname.toLowerCase() ];
+      if( typeof addr === 'undefined' ){
+         res.status(404);
+         res.type('application/json;charset=utf-8');
+         res.send(JSON.stringify({
+            error: 'File echomail area was not found.'
+         }));
+         return;
+      }
+      res.redirect(addr + filename);
+   });
+
    return app;
 };
