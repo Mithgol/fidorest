@@ -234,6 +234,18 @@ If the request is successful, the file is served.
 
 Otherwise an error (`404 Not Found`) happens and the corresponding JSON object (`{"error":"File not found."}`) is served.
 
+### GET /fileecho/:fechoname/:filename
+
+As in the previous requests, the path is relative to the root directory of FidoREST.
+
+**A file (designated by its name) published in a file echomail area (designated by its name) is requested.**
+
+Currently FidoREST does not serve files from local file echomail area. A redirect to an FTP mirror of that area happens.
+
+The request's keyword (for the `abilites` array) is `'fechofile'`.
+
+If the file echomail area's name (not case-sensitive) is unknown, then an error (`404 Not Found`) happens instead of a redirect. The corresponding JSON object (`{"error":"File echomail area was not found."}`) is served.
+
 ### GET /echolist
 
 As in the previous requests, the `/echolist` path is relative to the root directory of FidoREST.
