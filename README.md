@@ -144,7 +144,7 @@ The following types of requests were planned:
 
 * ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) Request detailed metadata of the designated file from the designated file echomail area.
 
-* ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) Get the designated file from the designated file echomail area. (If that area is not present on the system, a redirect to an FTP mirror of the area might happen.)
+* [Get the designated file from the designated file echomail area. (If that area is not present on the system, a redirect to an FTP mirror of the area might happen.)](#get-fileechofechonamefilename)
 
 * ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) Publish a file in a file echomail area (including some file's metadata).
 
@@ -238,9 +238,11 @@ Otherwise an error (`404 Not Found`) happens and the corresponding JSON obje
 
 As in the previous requests, the path is relative to the root directory of FidoREST.
 
-**A file (designated by its name) published in a file echomail area (designated by its name) is requested.**
+**A file** (designated by its name) **published in a file echomail area** (designated by its name) is requested.
 
-Currently FidoREST does not serve files from local file echomail area. A redirect to an FTP mirror of that area happens.
+![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) Currently FidoREST does not support serving files from local file echomail areas.
+
+However, a redirect to a remote FTP mirror of the designated area is performed.
 
 The request's keyword (for the `abilites` array) is `'fechofile'`.
 
