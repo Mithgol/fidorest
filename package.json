@@ -11,15 +11,15 @@
    "url": "https://github.com/Mithgol/fidorest.git"
 },
 "dependencies": {
-   "async": "~1.4.0",
+   "async": "~1.4.2",
    "extend": "~3.0.0",
    "fidoconfig": "~0.2.3",
-   "fidonet-jam": "~3.8.8",
+   "fidonet-jam": "~3.8.9",
    "ftp-fileecho-list": "~2.0.6",
-   "nodelist": "~1.1.6",
+   "nodelist": "~2.0.0",
    "openpgp": "~1.2.0",
-   "simteconf": "~0.6.10",
-   "sqlite3": "~3.0.9"
+   "simteconf": "~0.6.13",
+   "sqlite3": "~3.1.0"
 },
 "peerDependencies": {
    "express": ">=4.9.0"
