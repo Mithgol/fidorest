@@ -38,9 +38,9 @@ module.exports = function(configOptions){
    setup.feFTPMirrored = configFidoREST.all('FTPFileechoList'); // or `null`
    if( setup.feFTPMirrored !== null ){
       setup.feFTPMirrored = FTPFileechoListReader.sync(
-         setup.feFTPMirrored.map(function(nextListPath){
-            return path.resolve(__dirname, nextListPath);
-         })
+         setup.feFTPMirrored.map(
+            nextListPath => path.resolve(__dirname, nextListPath)
+         )
       );
    }
 

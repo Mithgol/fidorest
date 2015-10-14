@@ -3,7 +3,7 @@
 This module (`fidorest`) provides (in a form of RESTful API) a remote interface to a Fidonet system.
 
 It is designed as a web application for the [Express.js](http://expressjs.com/) web server.
-* Starting from v0.2.0, this module requires Node.js version 4.0.0 or newer.
+* Starting from v0.1.1, this module requires Node.js version 4.0.0 or newer.
 * You may run older versions of this module in Node.js version 0.10.x or 0.12.x. These older versions, however, had to contain additional dependencies as polyfills for missing ECMAScript 2015 (ES6) features which are now present in Node.js itself.
 
 This module is currently in an early phase of its development and thus does not have the desired level of feature completeness.
@@ -159,7 +159,7 @@ The following types of requests were planned:
 
 * [Request the list of echomail areas and their metadata.](#get-echolist)
 
-* ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) Request detailed metadata of the designated echomail area.
+* [Request detailed metadata of the designated echomail area.](#get-areadetailsareaname)
 
 * ![(TODO: not ready)](https://img.shields.io/badge/TODO-%28not_ready%29-001f3f.svg?style=plastic) List the messages in the designated echomail area and their metadata.
 

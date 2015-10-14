@@ -3,6 +3,7 @@ var path = require('path');
 var async = require('async');
 var express = require('express');
 var extend = require('extend');
+var JAM = require('fidonet-jam');
 var configReader = require('./restconf.js');
 var manifest = require('./package.json');
 
@@ -22,7 +23,13 @@ module.exports = function(optionsFidoREST){
          address: setupFidoREST.address,
          sys: setupFidoREST.SysOp,
          soft: 'FidoREST ' + manifest.version,
-         abilities: ['freqlist', 'freq', 'echolist', 'fechofile'],
+         abilities: [
+            'areadetails',
+            'echolist',
+            'fechofile',
+            'freq',
+            'freqlist'
+         ],
          publicKey: setupFidoREST.publicKeyArmored
       }));
    });
@@ -118,15 +125,36 @@ module.exports = function(optionsFidoREST){
    });
 
    app.get('/echolist', function(req, res){
-      var areaNames = setupFidoREST.areas.getAreaNames().map(function(aName){
-         return {
-            echotag: aName,
-            passthrough: setupFidoREST.areas[aName].passthrough,
-            description: setupFidoREST.areas[aName].description
-         };
-      });
+      var areaNames = setupFidoREST.areas.getAreaNames().map( aName => ({
+         echotag: aName,
+         passthrough: setupFidoREST.areas[aName].passthrough,
+         description: setupFidoREST.areas[aName].description
+      }) );
       res.type('application/json;charset=utf-8');
       res.send(JSON.stringify( areaNames ));
+   });
+
+   app.get('/areadetails/:areaname', function(req, res){
+      var areaname = req.params.areaname;
+      setupFidoREST.areas.area(areaname, function(err, areaData){
+         if( err ){
+            res.status(404);
+            res.type('application/json;charset=utf-8');
+            res.send(JSON.stringify( err ));
+            return;
+         }
+         var echobase = JAM( areaData.path );
+         echobase.readJDX(function(err){
+            if( err ){
+               res.status(500);
+               res.type('application/json;charset=utf-8');
+               res.send(JSON.stringify({ readError: true }));
+               return;
+            }
+            res.type('application/json;charset=utf-8');
+            res.send(JSON.stringify({ messages: echobase.size() }));
+         });
+      });
    });
 
    app.get('/fileecho/:fechoname/:filename', function(req, res){
