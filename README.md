@@ -3,6 +3,8 @@
 This module (`fidorest`) provides (in a form of RESTful API) a remote interface to a Fidonet system.
 
 It is designed as a web application for the [Express.js](http://expressjs.com/) web server.
+* Starting from v0.2.0, this module requires Node.js version 4.0.0 or newer.
+* You may run older versions of this module in Node.js version 0.10.x or 0.12.x. These older versions, however, had to contain additional dependencies as polyfills for missing ECMAScript 2015 (ES6) features which are now present in Node.js itself.
 
 This module is currently in an early phase of its development and thus does not have the desired level of feature completeness.
 
@@ -264,6 +266,25 @@ The response is a JSON array; each element of that array corresponds to an
 * `passthrough` — *(boolean)* `true` if the Fidonet system works with this area in passthrough mode (i.e. messages of the area are only delivered to the subscribed Fidonet systems, but afterwards they are not stored on this system and thus an archive of messages is not available); `false` if messages are stored on the system.
 
 * `description` — *(string or null)* the echomail area's description (or `null` if the description was not given in the Fidonet system's configuration).
+
+### GET /areadetails/:areaname
+
+As in the previous requests, the path is relative to the root directory of FidoREST.
+
+It requests **detailed metadata of the designated echomail area.**
+
+The request's keyword (for the `abilites` array) is `'areadetails'`.
+
+The response is one of the following JSON objects:
+
+* if the echomail area is not present on the system, `{ notFound: true }`
+
+* if the echomail area works in passthrough mode (i.e. messages of the area are only delivered to the subscribed Fidonet systems, but afterwards they are not stored on the system and thus an archive of messages is not available), `{ passthrough: true }`
+
+* otherwise an object with the following property:
+   * `messages` — the number of echomail messages in the designated echomail area.
+
+**Note: ** the response cannot report the number of unread messages because the request is anonymous.
 
 ## Testing FidoREST
 
