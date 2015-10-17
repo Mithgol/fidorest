@@ -12,6 +12,7 @@
 },
 "dependencies": {
    "async": "~1.4.2",
+   "body-parser": "~1.14.1",
    "extend": "~3.0.0",
    "fidoconfig": "~0.2.3",
    "fidonet-jam": "~3.8.9",
