@@ -11,3 +11,6 @@ AreasHPT \Fido\Soft\HPToss\areas.cfg
 ZIPNodelist \Fido\Nodelist\nodelist.zip
 
 FreqDir doc
+
+# uncomment (and maybe edit) the following line if you run an IPFS daemon
+# IPFS localhost:5001
