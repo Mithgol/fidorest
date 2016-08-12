@@ -11,7 +11,7 @@
    "url": "https://github.com/Mithgol/fidorest.git"
 },
 "dependencies": {
-   "async": "~1.5.0",
+   "async": "~2.0.1",
    "body-parser": "~1.15.0",
    "ciel": "~0.2.0",
    "extend": "~3.0.0",
