@@ -20,7 +20,7 @@
    "ftp-fileecho-list": "~3.0.0",
    "nodelist": "~2.0.0",
    "openpgp": "~2.3.0",
-   "simteconf": "~0.6.14",
+   "simteconf": "~0.7.0",
    "sqlite3": "~3.1.1"
 },
 "peerDependencies": {
