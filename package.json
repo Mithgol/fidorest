@@ -19,7 +19,7 @@
    "fidonet-jam": "~3.8.9",
    "ftp-fileecho-list": "~3.0.0",
    "nodelist": "~2.0.0",
-   "openpgp": "~2.4.0",
+   "openpgp": "~2.5.1",
    "simteconf": "~0.7.0",
    "sqlite3": "~3.1.1"
 },
