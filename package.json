@@ -11,13 +11,13 @@
    "url": "https://github.com/Mithgol/fidorest.git"
 },
 "dependencies": {
-   "async": "~2.2.0",
+   "async": "~2.3.0",
    "body-parser": "~1.17.0",
    "ciel": "~0.3.0",
    "extend": "~3.0.0",
    "fidoconfig": "~0.2.3",
    "fidonet-jam": "~3.8.9",
-   "ftp-fileecho-list": "~3.0.3",
+   "ftp-fileecho-list": "~3.0.4",
    "nodelist": "~2.0.0",
    "openpgp": "~2.5.1",
    "simteconf": "~0.7.0",
