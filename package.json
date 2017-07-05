@@ -15,12 +15,12 @@
    "body-parser": "~1.17.0",
    "ciel": "~0.3.0",
    "extend": "~3.0.0",
-   "fidoconfig": "~0.2.3",
+   "fidoconfig": "~1.0.0",
    "fidonet-jam": "~4.0.0",
    "ftp-fileecho-list": "~3.0.5",
    "nodelist": "~2.0.0",
    "openpgp": "~2.5.1",
-   "simteconf": "~0.7.0",
+   "simteconf": "~1.0.0",
    "sqlite3": "~3.1.1"
 },
 "peerDependencies": {
