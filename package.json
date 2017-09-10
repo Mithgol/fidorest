@@ -12,7 +12,7 @@
 },
 "dependencies": {
    "async": "~2.5.0",
-   "body-parser": "~1.17.0",
+   "body-parser": "~1.18.0",
    "ciel": "~0.3.0",
    "extend": "~3.0.0",
    "fidoconfig": "~1.0.0",
