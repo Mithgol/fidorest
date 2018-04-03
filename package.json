@@ -21,7 +21,7 @@
    "nodelist": "~2.0.0",
    "openpgp": "~2.6.0",
    "simteconf": "~1.0.0",
-   "sqlite3": "~3.1.1"
+   "sqlite3": "~4.0.0"
 },
 "peerDependencies": {
    "express": ">=4.9.0"
